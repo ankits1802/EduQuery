@@ -1,0 +1,180 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-open-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 330 60% 97%; /* Light Pink Tint */
+    --foreground: 330 10% 25%; /* Dark Pinkish Gray */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 330 10% 25%; /* Dark Pinkish Gray for text on card */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 330 10% 25%;
+
+    --primary: 330 75% 55%; /* Vibrant Pink */
+    --primary-rgb: 226, 54, 140; /* RGB for Vibrant Pink */
+    --primary-foreground: 0 0% 98%; /* Off-white text on pink */
+
+    --secondary: 330 20% 94%; /* Light Pinkish Gray */
+    --secondary-foreground: 330 50% 30%; /* Darker Pink for text on secondary */
+
+    --muted: 330 15% 96%; /* Very Light Pinkish Gray for muted backgrounds */
+    --muted-foreground: 330 10% 50%; /* Medium Pinkish Gray for muted text */
+
+    --accent: 340 80% 70%; /* Lighter/related Pink */
+    --accent-foreground: 0 0% 100%; /* White for text on accent */
+    
+    --success-bg: 145 58% 42%; /* A pleasant green */
+    --success-foreground: 0 0% 100%; /* White text on success green */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 330 20% 88%; /* Light Pinkish Gray border */
+    --input: 0 0% 100%; /* White background for input fields */
+    --ring: 330 75% 65%; /* Slightly lighter Pink for focus rings */
+
+    --chart-1: 330 70% 60%;
+    --chart-2: 340 75% 65%;
+    --chart-3: 320 65% 55%;
+    --chart-4: 350 80% 70%;
+    --chart-5: 310 70% 50%;
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%; 
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 330 15% 15%; /* Dark Pink Tint */
+    --foreground: 0 0% 95%; /* Light Gray/Off-white */
+
+    --card: 330 10% 18%; /* Darker Pinkish Gray for cards */
+    --card-foreground: 0 0% 95%; 
+
+    --popover: 330 10% 18%; 
+    --popover-foreground: 0 0% 95%; 
+
+    --primary: 330 70% 60%; /* Vibrant Pink (slightly adjusted for dark) */
+    --primary-rgb: 222, 71, 146; /* RGB for Vibrant Pink in dark mode */
+    --primary-foreground: 0 0% 98%; /* Off-White */
+
+    --secondary: 330 15% 25%; /* Darker Pinkish Gray */
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 330 10% 30%; /* Even Darker Pinkish Gray */
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 340 75% 70%; /* Lighter/related Pink (slightly adjusted for dark) */
+    --accent-foreground: 330 10% 15%; /* Dark text on accent for contrast in dark mode */
+    
+    --success-bg: 145 58% 32%;
+    --success-foreground: 0 0% 95%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 330 10% 35%; /* Dark Pinkish Gray border */
+    --input: 330 10% 22%; /* Dark Pinkish Gray input background */
+    --ring: 330 70% 70%; /* Lighter Pink for focus rings */
+
+    --chart-1: 330 65% 55%;
+    --chart-2: 340 70% 60%;
+    --chart-3: 320 60% 50%;
+    --chart-4: 350 75% 65%;
+    --chart-5: 310 65% 45%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  pre {
+    @apply bg-muted p-3 rounded-md overflow-x-auto text-sm my-2;
+  }
+  code {
+    @apply font-mono text-sm;
+  }
+  pre code {
+    @apply bg-transparent p-0; 
+  }
+}
+
+.btn-success {
+  @apply bg-[hsl(var(--success-bg))] text-[hsl(var(--success-foreground))] hover:bg-[hsl(var(--success-bg)/0.9)];
+}
+
+html, body, #__next {
+  height: 100%;
+}
+#__next > div {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@layer utilities {
+  .chat-bubble-user {
+    @apply relative rounded-tr-none; 
+  }
+  .chat-bubble-user::after {
+    content: "";
+    position: absolute;
+    top: 10px; 
+    right: -8px; 
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 0 8px 8px; 
+    border-color: transparent transparent transparent hsl(var(--primary)); 
+  }
+
+  .chat-bubble-ai {
+    @apply relative rounded-tl-none; 
+  }
+  .chat-bubble-ai::before {
+    content: "";
+    position: absolute;
+    top: 10px; 
+    left: -8px; 
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 8px 8px 8px 0; 
+    border-color: transparent hsl(var(--card)) transparent transparent; 
+  }
+
+  .animate-shimmer-glow {
+    animation: shimmer-glow 2s infinite ease-in-out;
+  }
+}
