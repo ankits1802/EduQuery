@@ -31,7 +31,7 @@ export default function Home() {
     if (viewMode === 'chat') {
       handleBackToAssistant();
     } else if (viewMode === 'assistant') {
-      window.location.href = 'https://6000-firebase-studio-1747578327375.cluster-zkm2jrwbnbd4awuedc2alqxrpk.cloudworkstations.dev/';
+      window.location.href = 'https://ankits1802-autosql.vercel.app/';
     }
   };
 
